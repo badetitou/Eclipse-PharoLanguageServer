@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="java"
+            id="fr.badetitou.javalanguageserver"
+            name="BL Language Server"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="fr.badetitou.javalanguageserver"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+   <extension
+         point="org.eclipse.lsp4e.languageServer">
+      <server
+            class="fr.badetitou.javalanguageserver.StreamConnectionProvider"
+            id="fr.badetitou.javalanguageserver.server"
+            label="fr.badetitou.javalanguageserver.server">
+      </server>
+      <contentTypeMapping
+            contentType="fr.badetitou.javalanguageserver"
+            id="fr.badetitou.javalanguageserver.server">
+      </contentTypeMapping>
+   </extension>
+
+</plugin>
